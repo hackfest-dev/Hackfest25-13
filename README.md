@@ -8,8 +8,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 <div align="center">
-  <img src="src/assets/logo.png" alt="Gram Vaidya Logo" width="200"/>
-  
+  <img src="https://github.com/user-attachments/assets/2140f990-c72f-428f-8f3f-7691f255a707" alt="Gram Vaidya Architecture" />
   <p><em>Revolutionizing Healthcare Access in Rural India</em></p>
 </div>
 
@@ -35,7 +34,7 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/gram-vaidya.git
+git clone https://github.com/hackstyx/gram-vaidya.git
 cd gram-vaidya
 ```
 
