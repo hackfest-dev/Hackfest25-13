@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaUser, FaLock, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
+import TranslateText from '../ui/TranslateText';
+import LanguageSelector from '../ui/LanguageSelector';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -35,11 +37,15 @@ const Signup = () => {
       <div className="max-w-md w-full space-y-8 bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/30 transform transition-all duration-300 hover:shadow-indigo-500/20">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-indigo-900 mb-2 drop-shadow-sm">
-            Create Your Account
+            <TranslateText>Create Your Account</TranslateText>
           </h2>
           <p className="text-indigo-600 font-medium">
-            Join our healthcare community today
+            <TranslateText>Join our healthcare community today</TranslateText>
           </p>
+        </div>
+        
+        <div className="absolute top-4 right-4">
+          <LanguageSelector />
         </div>
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -134,9 +140,9 @@ const Signup = () => {
               className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-indigo-300 rounded transition-colors"
             />
             <label htmlFor="terms" className="ml-2 block text-sm text-indigo-700 font-medium">
-              I agree to the{' '}
+              <TranslateText>I agree to the</TranslateText>{' '}
               <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
-                Terms and Conditions
+                <TranslateText>Terms and Conditions</TranslateText>
               </a>
             </label>
           </div>
@@ -146,16 +152,16 @@ const Signup = () => {
               type="submit"
               className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-indigo-500/30"
             >
-              Create Account
+              <TranslateText>Create Account</TranslateText>
             </button>
           </div>
         </form>
 
         <div className="text-center mt-4">
           <p className="text-sm text-indigo-600 font-medium">
-            Already have an account?{' '}
+            <TranslateText>Already have an account?</TranslateText>{' '}
             <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
-              Sign in
+              <TranslateText>Sign in</TranslateText>
             </Link>
           </p>
         </div>

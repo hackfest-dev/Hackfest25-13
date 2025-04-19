@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FaUser, FaLock, FaEnvelope, FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
+import TranslateText from '../ui/TranslateText';
+import LanguageSelector from '../ui/LanguageSelector';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -36,11 +38,15 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8 bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/30 transform transition-all duration-300 hover:shadow-indigo-500/20">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-indigo-900 mb-2 drop-shadow-sm">
-            Welcome Back
+            <TranslateText>Welcome Back</TranslateText>
           </h2>
           <p className="text-indigo-600 font-medium">
-            Sign in to access your healthcare dashboard
+            <TranslateText>Sign in to access your healthcare dashboard</TranslateText>
           </p>
+        </div>
+        
+        <div className="absolute top-4 right-4">
+          <LanguageSelector />
         </div>
         
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -98,13 +104,13 @@ const Login = () => {
                 className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-indigo-300 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <label htmlFor="remember-me" className="ml-2 block text-sm text-indigo-700 font-medium">
-                Remember me
+                <TranslateText>Remember me</TranslateText>
               </label>
             </div>
 
             <div className="text-sm">
               <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
-                Forgot your password?
+                <TranslateText>Forgot your password?</TranslateText>
               </a>
             </div>
           </div>
@@ -118,10 +124,10 @@ const Login = () => {
               {isLoading ? (
                 <>
                   <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5" />
-                  Signing in...
+                  <TranslateText>Signing in...</TranslateText>
                 </>
               ) : (
-                'Sign in'
+                <TranslateText>Sign in</TranslateText>
               )}
             </button>
           </div>
@@ -129,9 +135,9 @@ const Login = () => {
 
         <div className="text-center mt-4">
           <p className="text-sm text-indigo-600 font-medium">
-            Don't have an account?{' '}
+            <TranslateText>Don't have an account?</TranslateText>{' '}
             <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
-              Sign up now
+              <TranslateText>Sign up now</TranslateText>
             </Link>
           </p>
         </div>

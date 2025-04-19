@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import LanguageSelector from '../ui/LanguageSelector';
 
 const AuthLayout = () => {
   return (
@@ -13,6 +14,9 @@ const AuthLayout = () => {
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute top-4 right-4 z-50">
+        <LanguageSelector />
+      </div>
       <div className="relative z-10">
         <Outlet />
       </div>

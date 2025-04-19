@@ -5,26 +5,29 @@ import Signup from './components/auth/Signup';
 import AuthLayout from './components/auth/AuthLayout';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import GramVaidhyaWebsite from './components/Vaidya';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Auth Routes */}
-        <Route element={<AuthLayout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Route>
+    <LanguageProvider>
+      <Router>
+        <Routes>
+          {/* Auth Routes */}
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Route>
 
-        {/* Protected Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<GramVaidhyaWebsite />} />
-        </Route>
+          {/* Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<GramVaidhyaWebsite />} />
+          </Route>
 
-        {/* Redirect root to login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
-      </Routes>
-    </Router>
+          {/* Redirect root to login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </Router>
+    </LanguageProvider>
   );
 }
 

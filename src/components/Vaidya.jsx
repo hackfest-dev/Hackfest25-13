@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUserMd, FaFileUpload, FaEnvelope, FaHome, FaHistory, FaPhone, FaHeartbeat, FaCheckCircle, FaTimes, FaUser, FaPhoneAlt, FaComments, FaExclamationCircle, FaCheck, FaGift, FaCalendarAlt, FaStore, FaHospital, FaCopy, FaClipboardCheck, FaSpinner, FaClock } from 'react-icons/fa';
+import LanguageSelector from './ui/LanguageSelector';
+import TranslateText from './ui/TranslateText';
 
 export default function GramVaidhyaWebsite() {
   const homeRef = useRef(null);
@@ -165,7 +167,7 @@ export default function GramVaidhyaWebsite() {
                 <FaHeartbeat className="text-purple-600 text-2xl" />
               </div>
               <span className="text-2xl font-bold text-white">
-                Dr. Vaidhya
+                <TranslateText>Dr. Vaidhya</TranslateText>
               </span>
             </div>
             <div className="hidden md:flex space-x-8">
@@ -174,25 +176,27 @@ export default function GramVaidhyaWebsite() {
                 className="flex items-center text-white hover:text-yellow-200 transition-colors font-medium"
               >
                 <FaHome className="mr-2" />
-                Home
+                <TranslateText>Home</TranslateText>
               </button>
               <button
                 onClick={() => scrollToSection(experienceRef)}
                 className="flex items-center text-white hover:text-yellow-200 transition-colors font-medium"
               >
                 <FaHistory className="mr-2" />
-                Experience
+                <TranslateText>Experience</TranslateText>
               </button>
               <button
                 onClick={() => scrollToSection(contactRef)}
                 className="flex items-center text-white hover:text-yellow-200 transition-colors font-medium"
               >
                 <FaEnvelope className="mr-2" />
-                Contact Us
+                <TranslateText>Contact Us</TranslateText>
               </button>
+              <LanguageSelector />
             </div>
-            <div className="md:hidden">
-              <button className="text-white hover:text-yellow-200">
+            <div className="md:hidden flex items-center">
+              <LanguageSelector />
+              <button className="text-white hover:text-yellow-200 ml-2">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -219,8 +223,8 @@ export default function GramVaidhyaWebsite() {
         {/* Left-aligned message - moved further down */}
         <div className="absolute left-8 top-32 text-left z-10">
           <p className="text-[3.5vw] font-bold text-white leading-none leading-snug drop-shadow-lg">
-            Compassionate Care,<br />
-            Healthier Future Together
+            <TranslateText>Compassionate Care,</TranslateText><br />
+            <TranslateText>Healthier Future Together</TranslateText>
           </p>
         </div>
 
@@ -229,9 +233,11 @@ export default function GramVaidhyaWebsite() {
             onClick={handleTalkWithDoctor}
             className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-xl font-bold py-6 px-12 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
-            Talk with Dr. Vaidhya
+            <TranslateText>Talk with Dr. Vaidhya</TranslateText>
           </button>
-          <p className="mt-6 text-white italic drop-shadow-md">Poor network connection? Call us directly.</p>
+          <p className="mt-6 text-white italic drop-shadow-md">
+            <TranslateText>Poor network connection? Call us directly.</TranslateText>
+          </p>
         </div>
       </section>
 
@@ -251,8 +257,12 @@ export default function GramVaidhyaWebsite() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Share Your Experience</h2>
-            <p className="text-indigo-100 max-w-2xl mx-auto">Upload your medical records and tell us about your symptoms to help us provide better care.</p>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <TranslateText>Share Your Experience</TranslateText>
+            </h2>
+            <p className="text-indigo-100 max-w-2xl mx-auto">
+              <TranslateText>Upload your medical records and tell us about your symptoms to help us provide better care.</TranslateText>
+            </p>
           </div>
 
           <div className="max-w-2xl mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-indigo-100">
@@ -261,7 +271,9 @@ export default function GramVaidhyaWebsite() {
                 <div className="bg-indigo-100 p-3 rounded-full mr-3">
                   <FaFileUpload className="text-indigo-600 text-xl" />
                 </div>
-                <h3 className="text-xl font-medium text-indigo-700">Upload your medical records</h3>
+                <h3 className="text-xl font-medium text-indigo-700">
+                  <TranslateText>Upload your medical records</TranslateText>
+                </h3>
               </div>
               <div className="flex flex-col items-center">
                 <div className={`w-full max-w-md p-6 border-2 ${validationErrors.file ? 'border-red-400 bg-red-50' : 'border-dashed border-indigo-300 hover:bg-indigo-50'} rounded-lg cursor-pointer transition-colors`}>
@@ -275,14 +287,14 @@ export default function GramVaidhyaWebsite() {
                   <label htmlFor="file-upload" className="cursor-pointer flex flex-col items-center">
                     <FaFileUpload className={`w-12 h-12 ${validationErrors.file ? 'text-red-500' : 'text-indigo-500'} mb-2`} />
                     <span className={`mt-2 text-base ${validationErrors.file ? 'text-red-600' : 'text-indigo-600'}`}>
-                      {fileUpload ? fileUpload : "Click to upload image or PDF"}
+                      {fileUpload ? fileUpload : <TranslateText>Click to upload image or PDF</TranslateText>}
                     </span>
                   </label>
                 </div>
                 {validationErrors.file && (
                   <div className="flex items-center mt-2 text-red-500 text-sm">
                     <FaExclamationCircle className="mr-1" />
-                    <span>Please upload a file to continue</span>
+                    <span><TranslateText>Please upload a file to continue</TranslateText></span>
                   </div>
                 )}
               </div>
@@ -293,7 +305,9 @@ export default function GramVaidhyaWebsite() {
                 <div className="bg-indigo-100 p-3 rounded-full mr-3">
                   <FaComments className="text-indigo-600 text-xl" />
                 </div>
-                <h3 className="text-xl font-medium text-indigo-700">Describe Your Experience</h3>
+                <h3 className="text-xl font-medium text-indigo-700">
+                  <TranslateText>Describe Your Experience</TranslateText>
+                </h3>
               </div>
               <div className="relative">
                 <textarea
@@ -305,7 +319,7 @@ export default function GramVaidhyaWebsite() {
                 {validationErrors.experience && (
                   <div className="flex items-center mt-2 text-red-500 text-sm">
                     <FaExclamationCircle className="mr-1" />
-                    <span>Please describe your experience to continue</span>
+                    <span><TranslateText>Please describe your experience to continue</TranslateText></span>
                   </div>
                 )}
               </div>
@@ -320,10 +334,10 @@ export default function GramVaidhyaWebsite() {
                 {isLoading ? (
                   <span className="flex items-center justify-center">
                     <FaSpinner className="animate-spin mr-2" />
-                    Processing...
+                    <TranslateText>Processing...</TranslateText>
                   </span>
                 ) : (
-                  'Submit Experience'
+                  <TranslateText>Submit Experience</TranslateText>
                 )}
               </button>
             </div>
@@ -347,8 +361,12 @@ export default function GramVaidhyaWebsite() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Contact Us</h2>
-            <p className="text-indigo-100 max-w-2xl mx-auto">Get in touch with our healthcare professionals for personalized care.</p>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              <TranslateText>Contact Us</TranslateText>
+            </h2>
+            <p className="text-indigo-100 max-w-2xl mx-auto">
+              <TranslateText>Get in touch with our healthcare professionals for personalized care.</TranslateText>
+            </p>
           </div>
 
           <div className="max-w-md mx-auto bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-indigo-100">
@@ -401,7 +419,7 @@ export default function GramVaidhyaWebsite() {
                 type="submit"
                 className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg"
               >
-                Send Message
+                <TranslateText>Send Message</TranslateText>
               </button>
             </form>
           </div>
@@ -415,9 +433,13 @@ export default function GramVaidhyaWebsite() {
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
                 <FaUserMd className="text-teal-400 text-2xl mr-2" />
-                <span className="text-xl font-bold">Dr. Vaidhya</span>
+                <span className="text-xl font-bold">
+                  <TranslateText>Dr. Vaidhya</TranslateText>
+                </span>
               </div>
-              <p className="text-gray-400 mt-2">Compassionate healthcare at your fingertips</p>
+              <p className="text-gray-400 mt-2">
+                <TranslateText>Compassionate healthcare at your fingertips</TranslateText>
+              </p>
             </div>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -429,7 +451,9 @@ export default function GramVaidhyaWebsite() {
             </div>
           </div>
           <div className="mt-6 text-center text-gray-400 text-sm">
-            <p>© 2025 Dr. Vaidhya. All rights reserved.</p>
+            <p>
+              <TranslateText>© 2025 Dr. Vaidhya. All rights reserved.</TranslateText>
+            </p>
           </div>
         </div>
       </footer>
@@ -439,8 +463,12 @@ export default function GramVaidhyaWebsite() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-2xl p-8 flex flex-col items-center">
             <FaSpinner className="text-indigo-500 text-4xl animate-spin mb-4" />
-            <p className="text-indigo-700 font-medium">Processing your experience...</p>
-            <p className="text-gray-500 text-sm mt-2">Please wait while we generate your exclusive coupons</p>
+            <p className="text-indigo-700 font-medium">
+              <TranslateText>Processing your experience...</TranslateText>
+            </p>
+            <p className="text-gray-500 text-sm mt-2">
+              <TranslateText>Please wait while we generate your exclusive coupons</TranslateText>
+            </p>
           </div>
         </div>
       )}
@@ -460,16 +488,24 @@ export default function GramVaidhyaWebsite() {
               <div className="bg-green-100 p-4 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
                 <FaCheckCircle className="text-green-500 text-4xl" />
               </div>
-              <h3 className="text-2xl font-bold text-indigo-800">Thank You!</h3>
-              <p className="text-gray-600 mt-2">Your experience has been submitted successfully.</p>
+              <h3 className="text-2xl font-bold text-indigo-800">
+                <TranslateText>Thank You!</TranslateText>
+              </h3>
+              <p className="text-gray-600 mt-2">
+                <TranslateText>Your experience has been submitted successfully.</TranslateText>
+              </p>
             </div>
             
             <div className="mb-6">
               <div className="flex items-center justify-center mb-3">
                 <FaGift className="text-indigo-500 text-xl mr-2" />
-                <h4 className="text-lg font-semibold text-indigo-700">Your Exclusive Coupons</h4>
+                <h4 className="text-lg font-semibold text-indigo-700">
+                  <TranslateText>Your Exclusive Coupons</TranslateText>
+                </h4>
               </div>
-              <p className="text-gray-600 text-sm mb-4 text-center">Use these coupons at our partner pharmacies and clinics:</p>
+              <p className="text-gray-600 text-sm mb-4 text-center">
+                <TranslateText>Use these coupons at our partner pharmacies and clinics:</TranslateText>
+              </p>
               
               <div className="space-y-3">
                 {coupons.map((coupon, index) => (
@@ -495,11 +531,15 @@ export default function GramVaidhyaWebsite() {
                                 )}
                               </button>
                             </div>
-                            <p className="text-indigo-600">{coupon.discount}</p>
+                            <p className="text-indigo-600">
+                              <TranslateText>{coupon.discount}</TranslateText>
+                            </p>
                           </div>
                           <div className="text-right flex items-center">
                             <FaCalendarAlt className="text-indigo-400 mr-1" />
-                            <p className="text-xs font-medium text-indigo-700">{coupon.validUntil}</p>
+                            <p className="text-xs font-medium text-indigo-700">
+                              <TranslateText>{coupon.validUntil}</TranslateText>
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -513,7 +553,7 @@ export default function GramVaidhyaWebsite() {
               onClick={() => setShowCouponPopup(false)}
               className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg transform hover:scale-105"
             >
-              Close
+              <TranslateText>Close</TranslateText>
             </button>
           </div>
         </div>
@@ -534,23 +574,31 @@ export default function GramVaidhyaWebsite() {
               <div className="bg-green-100 p-4 rounded-full w-20 h-20 mx-auto flex items-center justify-center mb-4">
                 <FaCheckCircle className="text-green-500 text-4xl" />
               </div>
-              <h3 className="text-2xl font-bold text-indigo-800">Thank You!</h3>
-              <p className="text-gray-600 mt-2">Your message has been sent successfully.</p>
+              <h3 className="text-2xl font-bold text-indigo-800">
+                <TranslateText>Thank You!</TranslateText>
+              </h3>
+              <p className="text-gray-600 mt-2">
+                <TranslateText>Your message has been sent successfully.</TranslateText>
+              </p>
             </div>
             
             <div className="mb-6 bg-gradient-to-r from-indigo-50 to-purple-50 p-5 rounded-lg border border-indigo-100">
               <div className="flex items-center mb-2">
                 <FaClock className="text-indigo-500 mr-2" />
-                <p className="text-indigo-700 font-medium">We will get in touch with you shortly.</p>
+                <p className="text-indigo-700 font-medium">
+                  <TranslateText>We will get in touch with you shortly.</TranslateText>
+                </p>
               </div>
-              <p className="text-indigo-600 text-sm">Our healthcare professionals will review your message and contact you within 24 hours.</p>
+              <p className="text-indigo-600 text-sm">
+                <TranslateText>Our healthcare professionals will review your message and contact you within 24 hours.</TranslateText>
+              </p>
             </div>
             
             <button
               onClick={() => setShowContactPopup(false)}
               className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 font-medium shadow-md hover:shadow-lg transform hover:scale-105"
             >
-              Close
+              <TranslateText>Close</TranslateText>
             </button>
           </div>
         </div>
